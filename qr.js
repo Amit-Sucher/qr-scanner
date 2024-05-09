@@ -19,6 +19,7 @@ function createNotification(messagetext = message) {
     },2500)
 }
 
+//check something
 function fetchRequest(formData, file){
     infoText.innerText = "Scanning QR Code..."
     fetch("http://api.qrserver.com/v1/read-qr-code/",{
