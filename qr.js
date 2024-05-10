@@ -8,7 +8,7 @@ const copyBtn = document.querySelector('.copy');
 const closeBtn = document.querySelector('.close');
 
 const message = "Copied To Clipboard";
-const apiKey = "AIzaSyAGxFE-F8ARrcK1taKNc_z7bO67Re0oVFo"; // Replace with your actual API key
+const apiKey = "5e347ecdf45823fc9e908265d8f8fb27af16eba9"; // Replace with your actual API key
 const spreadsheetId = "1uLD1ZknVpRXH1K5TL5XP-7ddqs7LkaO9s2dscOMR888"; // Replace with your spreadsheet ID
 const range = "Sheet1!A1"; // Adjust to your needs
 
@@ -39,7 +39,7 @@ async function appendToGoogleSheet(data) {
         const result = await response.json();
 
         if (response.ok) {
-            console.log("Successfully appended data to Google Sheets:", result);
+            console.log("Successfully appended data:", result);
         } else {
             console.error("Error appending data:", result);
         }
@@ -47,6 +47,7 @@ async function appendToGoogleSheet(data) {
         console.error("Error writing to Google Sheets:", error);
     }
 }
+
 
 // Function to scan the QR code and append data
 function fetchRequest(formData, file) {
