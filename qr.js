@@ -35,7 +35,7 @@ function fetchRequest(formData, file) {
             wrapper.classList.add("active");
 
             // Send the scanned data to the Google Apps Script web app
-            const webAppUrl = 'https://docs.google.com/spreadsheets/d/1uLD1ZknVpRXH1K5TL5XP-7ddqs7LkaO9s2dscOMR888/edit#gid=0'; // Replace with the actual URL
+            const webAppUrl = 'https://script.google.com/macros/s/AKfycbz5ROBrSaOuUJRJuj6wpKE7Bslmb1M5bRTOc5rSiHYHYMouABZdicSDopC-insL1ECd/exec'; // Replace with the actual URL
             fetch(webAppUrl, {
                 method: 'POST',
                 headers: {
