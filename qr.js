@@ -6,6 +6,8 @@ const textArea = document.getElementById('textArea')
 const copyBtn = document.querySelector('.copy')
 const closeBtn = document.querySelector('.close')
 const message = "Copied To Clipboard"
+
+
 function createNotification(messagetext = message) {
     const notif = document.createElement('div')
     notif.classList.add('toast')
@@ -27,11 +29,12 @@ function fetchRequest(formData, file){
         textArea.innerText = result
         form.querySelector("img").src = URL.createObjectURL(file)
         wrapper.classList.add("active")
-        // console.log(result);
+        sendDataToSheet(result);
     }).catch(()=>{
         infoText.innerText = "Couldn't Scan QR Code"
     })
 }
+
 fileInput.addEventListener('change',e => {
     let file = e.target.files[0];
     if(!file) return;
@@ -53,3 +56,19 @@ closeBtn.addEventListener("click",()=>{
         window.location.reload()
     },550)
 })
+
+// Example function to send data to a Google Sheet via Apps Script Web App
+function sendDataToSheet(value) {
+    fetch('https://script.google.com/macros/s/AKfycbzSHCdp5fTNwq0-_MkIEjhsKZrKMRutNn9T63q2gWSn7D7SyiPhoGZ27rim0MD_x9Ir/exec', {
+      method: 'POST',
+      contentType: 'application/json',
+      body: JSON.stringify({value: value})
+    })
+    .then(response => response.json())
+    .then(data => console.log('Success:', data))
+    .catch(error => console.error('Error:', error));
+  }
+  
+
+
+ 
