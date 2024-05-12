@@ -57,9 +57,17 @@ closeBtn.addEventListener("click",()=>{
     },550)
 })
 
+
+//server functions (sorta?)
+function removeUnwantedCharacters(value) {
+    // Replace removes specific characters globally
+    return value.replace(/[\{\}\[\]]/g, '');
+}
+
 // Example function to send data to a Google Sheet via Apps Script Web App
 function sendDataToSheet(value) {
-    fetch('https://script.google.com/macros/s/AKfycbzSHCdp5fTNwq0-_MkIEjhsKZrKMRutNn9T63q2gWSn7D7SyiPhoGZ27rim0MD_x9Ir/exec', {
+    value = removeUnwantedCharacters(value)
+    fetch('https://script.google.com/macros/s/AKfycbwioY-LyzbjBEdEcK-FLFm3y0go1ohxY7g1MJRcq3yJ0CeafO1TM4FqHUbUZTQAKbo-/exec', {
       method: 'POST',
       contentType: 'application/json',
       body: JSON.stringify({value: value})
@@ -69,6 +77,4 @@ function sendDataToSheet(value) {
     .catch(error => console.error('Error:', error));
   }
   
-
-
  
