@@ -1,0 +1,38 @@
+body {
+    background-color: grey;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 100px);
+}
+
+.wrapper {
+    display: block;
+    text-align: center;
+}
+
+.start {
+    background-color: blue;
+}
+
+.stop {
+    background-color: red;
+}
+
+button {
+    margin-top: 10px;
+    outline: none;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 30px;
+}
+
+video,
+.output {
+    display: none;
+}
