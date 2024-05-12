@@ -43,7 +43,12 @@ var audio = document.getElementById('beep');
                 alert('No cameras found');
             }
         }).catch(function(e) {
-            console.error(e);
+            console.error(e); 
+            if (e.name === 'NotAllowedError') {
+                alert('Camera access was denied. Please enable camera access to use this feature.');
+            } else {
+                alert('Error accessing the camera.');
+            }
         });
         
 
