@@ -35,21 +35,17 @@ var audio = document.getElementById('beep');
 
         //GET CAMERA
         Instascan.Camera.getCameras().then(function(cameras) {
-
-            active_cam = 0;
-            if (window.matchMedia("(max-width: 760px)").matches) {
-                active_cam = 1;
-            }
-
             if (cameras.length > 0) {
-                scanner.start(cameras[active_cam]);
+                // Attempt to find the back camera
+                var backCamIndex = cameras.findIndex(cam => cam.name && cam.name.includes('back'));
+                scanner.start(cameras[backCamIndex !== -1 ? backCamIndex : 0]);
             } else {
                 alert('No cameras found');
             }
-
         }).catch(function(e) {
             console.error(e);
         });
+        
 
         // SCANNING
         scanner.addListener('scan', function(c) {
