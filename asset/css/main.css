@@ -1,5 +1,24 @@
+@keyframes animatedGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes animatedGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
 body {
-    background-color: grey;
+    animation: animatedGradient 10s infinite linear;
+    background: linear-gradient(to right, rgb(1, 34, 101), rgb(211, 175, 55));
 }
 
 .container {
@@ -10,8 +29,9 @@ body {
 }
 
 .wrapper {
-    display: block;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .start {
@@ -23,13 +43,20 @@ body {
 }
 
 button {
-    margin-top: 10px;
     outline: none;
+    margin-top: 20px;
+    padding: 16px 32px;
     border: none;
+    border-radius: 11px; 
     color: white;
-    padding: 10px;
-    border-radius: 5px;
     font-size: 30px;
+    cursor: pointer;
+    transition: background-color 0.5s; 
+}
+
+
+button:hover {
+    background-color: rgb(21, 84, 21); 
 }
 
 video,
