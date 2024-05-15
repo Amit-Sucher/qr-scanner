@@ -29,7 +29,7 @@ body {
 }
 
 .wrapper {
-    display: flex;
+    display: block;
     flex-direction: column;
     align-items: center;
 }
@@ -43,12 +43,13 @@ body {
 }
 
 button {
+    outline: none;
     margin-top: 20px;
     padding: 16px 32px;
     border: none;
     border-radius: 11px; 
     color: white;
-    font-size: 18px;
+    font-size: 30px;
     cursor: pointer;
     transition: background-color 0.5s; 
 }
