@@ -44,11 +44,6 @@ var audio = document.getElementById('beep');
             }
         }).catch(function(e) {
             console.error(e); 
-            if (e.name === 'NotAllowedError') {
-                alert('Camera access was denied. Please enable camera access to use this feature.');
-            } else {
-                alert('Error accessing the camera.');
-            }
         });
         
 
@@ -96,7 +91,7 @@ function removeUnwantedCharacters(value) {
 // Example function to send data to a Google Sheet via Apps Script Web App
 function sendDataToSheet(value) {
     value = removeUnwantedCharacters(value)
-    fetch('https://script.google.com/macros/s/AKfycbwioY-LyzbjBEdEcK-FLFm3y0go1ohxY7g1MJRcq3yJ0CeafO1TM4FqHUbUZTQAKbo-/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbzxJmqZyvvPHM01FOFTnlGtUFxoslmNOJTUT0QccjLQsK5uQAHHhe_HfYFO2BxyK7Y_/exec', {
       method: 'POST',
       contentType: 'application/json',
       body: JSON.stringify({value: value})
